@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\netcoreapp3.0\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\netcoreapp3.0\EntityFramework.props')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{747A0BAD-9863-44C5-9D52-ABAFFF7C1518}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BusBaf</RootNamespace>
+    <AssemblyName>BusBaf</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>006-bus-3.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>C:\Users\PHANTOM_cm\Desktop\Guna Framework\Guna.UI-Framework-Lib-master\Guna.UI-Framework-Lib\.net 4.0\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dao\AccesBd.cs" />
+    <Compile Include="Dao\AffecterDao.cs" />
+    <Compile Include="Dao\AttibuerDao.cs" />
+    <Compile Include="Dao\BusDao.cs" />
+    <Compile Include="Dao\CarteDao.cs" />
+    <Compile Include="Dao\ChauffeurDao.cs" />
+    <Compile Include="Dao\DroitDao.cs" />
+    <Compile Include="Dao\LigneDao.cs" />
+    <Compile Include="Dao\PaiementDao.cs" />
+    <Compile Include="Dao\PointDao.cs" />
+    <Compile Include="Dao\AdminDao.cs" />
+    <Compile Include="Dao\VersementDao.cs" />
+    <Compile Include="Model\AdresseIp.cs" />
+    <Compile Include="Model\Affecter.cs" />
+    <Compile Include="Model\Attribuer.cs" />
+    <Compile Include="Model\Bus.cs" />
+    <Compile Include="Model\Carte.cs" />
+    <Compile Include="Model\Droits.cs" />
+    <Compile Include="Model\Ligne.cs" />
+    <Compile Include="Model\Paiement.cs" />
+    <Compile Include="Model\Periode.cs" />
+    <Compile Include="Model\Chauffeur.cs" />
+    <Compile Include="Model\Points.cs" />
+    <Compile Include="Model\Admin.cs" />
+    <Compile Include="Model\Versement.cs" />
+    <Compile Include="View\BusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BusForm.Designer.cs">
+      <DependentUpon>BusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\CarteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\CarteForm.Designer.cs">
+      <DependentUpon>CarteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\DriverForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DriverForm.Designer.cs">
+      <DependentUpon>DriverForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Formu\AddAffecterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formu\AddAffecterForm.Designer.cs">
+      <DependentUpon>AddAffecterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Formu\AddAttribuerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formu\AddAttribuerForm.Designer.cs">
+      <DependentUpon>AddAttribuerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Formu\AddBusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formu\AddBusForm.Designer.cs">
+      <DependentUpon>AddBusForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Formu\AddCarteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formu\AddCarteForm.Designer.cs">
+      <DependentUpon>AddCarteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Formu\AddDriverForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formu\AddDriverForm.Designer.cs">
+      <DependentUpon>AddDriverForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Formu\AddLigneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formu\AddLigneForm.Designer.cs">
+      <DependentUpon>AddLigneForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Formu\AddVersemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formu\AddVersemForm.Designer.cs">
+      <DependentUpon>AddVersemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Formu\AddPointForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formu\AddPointForm.Designer.cs">
+      <DependentUpon>AddPointForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Formu\ListeAffectation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formu\ListeAffectation.Designer.cs">
+      <DependentUpon>ListeAffectation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Formu\ListeAttribution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formu\ListeAttribution.Designer.cs">
+      <DependentUpon>ListeAttribution.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Formu\ListePaiement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formu\ListePaiement.Designer.cs">
+      <DependentUpon>ListePaiement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Formu\RechageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Formu\RechageForm.Designer.cs">
+      <DependentUpon>RechageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\HistForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\HistForm.Designer.cs">
+      <DependentUpon>HistForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LigneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LigneForm.Designer.cs">
+      <DependentUpon>LigneForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MenuForm.Designer.cs">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MenuForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MenuForm2.Designer.cs">
+      <DependentUpon>MenuForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\VersementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\VersementForm.Designer.cs">
+      <DependentUpon>VersementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PointForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PointForm.Designer.cs">
+      <DependentUpon>PointForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\UCItemMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\UCItemMenu.Designer.cs">
+      <DependentUpon>UCItemMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminForm.Designer.cs">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\BusForm.resx">
+      <DependentUpon>BusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CarteForm.resx">
+      <DependentUpon>CarteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DriverForm.resx">
+      <DependentUpon>DriverForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Formu\AddAffecterForm.resx">
+      <DependentUpon>AddAffecterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Formu\AddAttribuerForm.resx">
+      <DependentUpon>AddAttribuerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Formu\AddBusForm.resx">
+      <DependentUpon>AddBusForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Formu\AddCarteForm.resx">
+      <DependentUpon>AddCarteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Formu\AddDriverForm.resx">
+      <DependentUpon>AddDriverForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Formu\AddLigneForm.resx">
+      <DependentUpon>AddLigneForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Formu\AddVersemForm.resx">
+      <DependentUpon>AddVersemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Formu\AddPointForm.resx">
+      <DependentUpon>AddPointForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Formu\ListeAffectation.resx">
+      <DependentUpon>ListeAffectation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Formu\ListeAttribution.resx">
+      <DependentUpon>ListeAttribution.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Formu\ListePaiement.resx">
+      <DependentUpon>ListePaiement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Formu\RechageForm.resx">
+      <DependentUpon>RechageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\HistForm.resx">
+      <DependentUpon>HistForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LigneForm.resx">
+      <DependentUpon>LigneForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MenuForm.resx">
+      <DependentUpon>MenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MenuForm2.resx">
+      <DependentUpon>MenuForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\VersementForm.resx">
+      <DependentUpon>VersementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PointForm.resx">
+      <DependentUpon>PointForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TestForm.resx">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\UCItemMenu.resx">
+      <DependentUpon>UCItemMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_delete_250px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_delete_250px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_delete_250px_11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_subtract_250px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_subtract_250px_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_settings_150px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_settings_150px_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\006-bus-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\015-bus-stop-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\016-bus-9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\018-bus-stop-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\023-bus-12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\029-shopping-cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\030-online-shop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\031-shopping-cart-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\035-online-shop-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\039-credit-card-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\007-bus-stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\017-clock-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\061-brainstorm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\077-people-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\020-bus-stop-4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_plus_math_250px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_plus_math_250px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\combo_ch1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reports\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxMapWinGIS">
+      <Guid>{C368D713-CC5F-40ED-9F53-F84FE197B96A}</Guid>
+      <VersionMajor>4</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="MapWinGIS">
+      <Guid>{C368D713-CC5F-40ED-9F53-F84FE197B96A}</Guid>
+      <VersionMajor>4</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\squared_menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\squared_menu1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invisible.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\visible.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="006-bus-3.ico" />
+    <None Include="Resources\icons8_exit_50px.png" />
+    <None Include="Resources\place_marker_50px_1.png" />
+    <None Include="Resources\map_marker_50px_1.png" />
+    <None Include="Resources\google_maps_50px.png" />
+    <None Include="Resources\cusor_connected.png" />
+    <None Include="Resources\cursor_mind_map.png" />
+    <None Include="Resources\cursor_place.png" />
+    <None Include="Resources\cursor1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\netcoreapp3.0\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\netcoreapp3.0\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\netcoreapp3.0\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\netcoreapp3.0\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.4\build\netcoreapp3.0\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\netcoreapp3.0\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

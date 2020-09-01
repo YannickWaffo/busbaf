@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+  <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BusSet" EntityType="Model1.Bus" />
+    <EntitySet Name="AffecterSet" EntityType="Model1.Affecter" />
+    <AssociationSet Name="AffecterBus" Association="Model1.AffecterBus">
+      <End Role="Affecter" EntitySet="AffecterSet" />
+      <End Role="Bus" EntitySet="BusSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Bus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Property1" Type="String" Nullable="false" />
+    <Property Name="Property2" Type="String" Nullable="false" />
+    <Property Name="Property3" Type="String" Nullable="false" />
+    <NavigationProperty Name="Affecter" Relationship="Model1.AffecterBus" FromRole="Bus" ToRole="Affecter" />
+  </EntityType>
+  <EntityType Name="Affecter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Bus" Relationship="Model1.AffecterBus" FromRole="Affecter" ToRole="Bus" />
+  </EntityType>
+  <Association Name="AffecterBus">
+    <End Type="Model1.Affecter" Role="Affecter" Multiplicity="1" />
+    <End Type="Model1.Bus" Role="Bus" Multiplicity="*" />
+  </Association>
+</Schema>
